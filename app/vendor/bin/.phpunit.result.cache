@@ -1,0 +1,1 @@
+{"version":1,"defects":{"CurrencyFetcherTest::testCanFetchRates":7,"CurrencyFetcherTest::testCanFetchUsdRates":8,"CurrencyFetcherTest::testCannotFetchInvalidCurrencyRates":8},"times":{"CurrencyFetcherTest::testCanFetchRates":3.147,"CurrencyFetcherTest::testCanFetchUsdRates":6.663,"CurrencyFetcherTest::testCannotFetchInvalidCurrencyRates":0.647}}

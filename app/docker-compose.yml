@@ -1,0 +1,15 @@
+services:
+  php-cli:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    stdin_open: true
+    tty: true
+  
+  phpunit:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: vendor/bin/phpunit tests/
