@@ -1,22 +1,23 @@
 <?php
-
 require 'vendor/autoload.php';
-
 use App\CurrencyFetcher;
+use App\DTO\CurrencyRequest;
 
 $fetcher = new CurrencyFetcher();
 
 // Default currency set to USD if no argument is passed
 $baseCurrency = $argv[1] ?? 'USD';
 
+$request = new CurrencyRequest($baseCurrency);
+
 try {
-    $rates = $fetcher->getRates($baseCurrency);
+    $rates = $fetcher->getRates($request);
 
     if (!empty($rates)) {
         echo "\nLive exchange rates for {$baseCurrency}:\n";
         echo "****************************\n";
-        foreach ($rates as $pair => $rate) {
-            echo "{$pair}: {$rate}\n";
+        foreach ($rates as $rate) {
+            echo "{$rate->pair}: {$rate->rate}\n";
         }
     } else {
         echo "No exchange rates found. Please check your API key and currency.\n";
